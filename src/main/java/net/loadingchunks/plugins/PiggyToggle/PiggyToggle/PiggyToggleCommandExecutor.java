@@ -75,6 +75,7 @@ public class PiggyToggleCommandExecutor implements CommandExecutor {
         					return true;
         				} else {
         					sender.sendMessage("Please specify a valid world name.");
+        					return false;
         				}
         			} else if(args[0].equalsIgnoreCase("remove")){
         				if(this.plugin.getConfig().getStringList("worlds").contains(args[1]))
@@ -84,12 +85,15 @@ public class PiggyToggleCommandExecutor implements CommandExecutor {
         				} else {
         					sender.sendMessage("That world is not listed!");
         				}
+        				return true;
         			} else {
         				sender.sendMessage("Invalid add/remove command");
         				return false;
         			}
-        		}
-        	}
+        		} else
+        			sender.sendMessage("Invalid number of arguments given.");
+        	} else
+        		sender.sendMessage("No arguments given.");
         }
         return false;
     }
