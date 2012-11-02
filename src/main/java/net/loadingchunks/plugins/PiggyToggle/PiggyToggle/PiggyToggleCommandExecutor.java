@@ -69,7 +69,7 @@ public class PiggyToggleCommandExecutor implements CommandExecutor {
         				sender.sendMessage("- " + ChatColor.GREEN + s);
         			}
         		} else if(args.length == 2) {
-        			if(args[0].equalsIgnoreCase("add"))
+        			if(args[0].equalsIgnoreCase("add") || args[0].equalsIgnoreCase("true"))
         			{
         				if(this.plugin.getServer().getWorld(args[1]) != null)
         				{
@@ -86,7 +86,7 @@ public class PiggyToggleCommandExecutor implements CommandExecutor {
         					sender.sendMessage("Please specify a valid world name.");
         					return false;
         				}
-        			} else if(args[0].equalsIgnoreCase("remove")){
+        			} else if(args[0].equalsIgnoreCase("remove") || args[0].equalsIgnoreCase("remove")){
         				if(this.plugin.worldList.contains(args[1]))
         				{
         					this.plugin.worldList.remove(args[1]);
