@@ -68,9 +68,9 @@ public class PiggyToggleEventListener implements Listener {
 			Boolean victimFlagged = false;
 			victimFlagged = this.plugin.pvpList.get(((Player)event.getEntity()).getName());
 
-			if(assailantFlagged)
+			if(assailantFlagged != null && assailantFlagged)
 			{
-				if(victimFlagged)
+				if(victimFlagged != null && victimFlagged)
 					return;
 				else
 				{
