@@ -63,9 +63,12 @@ public class PiggyToggleEventListener implements Listener {
 		
 		if(assailant != null)
 		{
-			if(this.plugin.pvpList.get(assailant.getName()))
+			Boolean assailantFlagged = this.plugin.pvpList.get(assailant.getName());
+			Boolean victimFlagged = this.plugin.pvpList.get(((Player)event.getEntity()).getName());
+
+			if(assailantFlagged)
 			{
-				if(this.plugin.pvpList.get(((Player)event.getEntity()).getName()))
+				if(victimFlagged)
 					return;
 				else
 				{
@@ -73,7 +76,7 @@ public class PiggyToggleEventListener implements Listener {
 					assailant.sendMessage(ChatColor.RED + ((Player)event.getEntity()).getName() + " is not flagged for PVP!");
 				}
 			} else {
-				event.isCancelled();
+				event.setCancelled(true);
 				assailant.sendMessage(ChatColor.RED + "You are not flagged for PVP, use /pvp to flag yourself and enable PVP!");
 			}
 		}
