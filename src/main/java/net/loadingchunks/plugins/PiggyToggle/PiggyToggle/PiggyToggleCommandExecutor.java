@@ -24,11 +24,11 @@ public class PiggyToggleCommandExecutor implements CommandExecutor {
         			{
         				if(this.plugin.pvpList.get(sender.getName()))
         				{
-        					this.plugin.pvpList.put(sender.getName(), false);
+        					this.plugin.pvpList.put(sender.getName(), true);
         					sender.sendMessage(ChatColor.RED + "You are now flagged for PVP. Type /pvp again to disable.");
         				} else
         				{
-        					this.plugin.pvpList.put(sender.getName(), true);
+        					this.plugin.pvpList.put(sender.getName(), false);
         					sender.sendMessage(ChatColor.RED + "You are no longer flagged for PVP. Type /pvp again to enable.");
         				}
         			} else {
