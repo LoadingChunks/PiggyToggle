@@ -11,3 +11,4 @@ commands:
     usage:
       - /pt <add/remove> <world>
       - /pt reload
+      - /pt list

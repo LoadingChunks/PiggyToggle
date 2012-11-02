@@ -60,6 +60,14 @@ public class PiggyToggleCommandExecutor implements CommandExecutor {
         			this.plugin.reloadConfig();
         			sender.sendMessage("PiggyToggle Config Reloaded.");
         			return true;
+        		} else if(args[0].equalsIgnoreCase("list"))
+        		{
+        			sender.sendMessage("Managed worlds for PVP:");
+        			
+        			for(String s : this.plugin.worldList)
+        			{
+        				sender.sendMessage("- " + ChatColor.GREEN + s);
+        			}
         		} else if(args.length == 2) {
         			if(args[0].equalsIgnoreCase("add"))
         			{
