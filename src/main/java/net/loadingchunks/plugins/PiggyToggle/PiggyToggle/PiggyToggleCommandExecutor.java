@@ -36,7 +36,7 @@ public class PiggyToggleCommandExecutor implements CommandExecutor {
     					sender.sendMessage(ChatColor.RED + "You are now flagged for PVP. Type /pvp again to disable.");
         			}
         			
-        			if(!this.plugin.worldList.contains(((Player) sender).getWorld()))
+        			if(!this.plugin.worldList.contains(((Player) sender).getWorld().getName()))
         				sender.sendMessage("Please note PvP toggling has no effect in the world you are currently in (" + ((Player)sender).getWorld().getName() + ") as PvP in this world is managed elsewhere.");
         		} else {
         			sender.sendMessage("You do not have permission to toggle your PVP.");
