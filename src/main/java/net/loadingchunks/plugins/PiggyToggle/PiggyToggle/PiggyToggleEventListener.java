@@ -29,7 +29,7 @@ public class PiggyToggleEventListener implements Listener {
 		Player assailant = null;
 		
 		// We don't manage this world.
-		if(!this.plugin.getConfig().getStringList("worlds").contains(event.getEntity().getWorld().getName()))
+		if(!this.plugin.worldList.contains(event.getEntity().getWorld().getName()))
 			return;
 		
 		if(!(event.getEntity() instanceof Player))

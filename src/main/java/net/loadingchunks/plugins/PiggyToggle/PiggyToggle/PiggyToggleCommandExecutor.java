@@ -36,7 +36,7 @@ public class PiggyToggleCommandExecutor implements CommandExecutor {
     					sender.sendMessage(ChatColor.RED + "You are now flagged for PVP. Type /pvp again to disable.");
         			}
         			
-        			if(!this.plugin.getConfig().getStringList("worlds").contains(((Player) sender).getWorld()))
+        			if(!this.plugin.worldList.contains(((Player) sender).getWorld()))
         				sender.sendMessage("Please note PvP toggling has no effect in the world you are currently in (" + ((Player)sender).getWorld().getName() + ") as PvP in this world is managed elsewhere.");
         		} else {
         			sender.sendMessage("You do not have permission to toggle your PVP.");
@@ -65,12 +65,12 @@ public class PiggyToggleCommandExecutor implements CommandExecutor {
         			{
         				if(this.plugin.getServer().getWorld(args[1]) != null)
         				{
-        					if(this.plugin.getConfig().getStringList("worlds").contains(args[1]))
+        					if(this.plugin.worldList.contains(args[1]))
         						sender.sendMessage("That world is already listed!");
         					else
         					{
-        						this.plugin.getConfig().getStringList("worlds").add(args[1]);
-        						this.plugin.saveConfig();
+        						this.plugin.worldList.add(args[1]);
+        						this.plugin.saveWorldConfig();
         						sender.sendMessage("World " + args[1] + " added to PVP Management List.");
         					}
         					return true;
@@ -79,9 +79,10 @@ public class PiggyToggleCommandExecutor implements CommandExecutor {
         					return false;
         				}
         			} else if(args[0].equalsIgnoreCase("remove")){
-        				if(this.plugin.getConfig().getStringList("worlds").contains(args[1]))
+        				if(this.plugin.worldList.contains(args[1]))
         				{
-        					this.plugin.getConfig().getStringList("worlds").remove(args[1]);
+        					this.plugin.worldList.remove(args[1]);
+        					this.plugin.saveWorldConfig();
         					sender.sendMessage("World " + args[1] + " has been removed from the PVP Management List.");
         				} else {
         					sender.sendMessage("That world is not listed!");

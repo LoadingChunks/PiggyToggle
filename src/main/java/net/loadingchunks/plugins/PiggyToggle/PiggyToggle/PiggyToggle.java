@@ -1,6 +1,8 @@
 package net.loadingchunks.plugins.PiggyToggle.PiggyToggle;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -13,6 +15,7 @@ public class PiggyToggle extends JavaPlugin {
 	//ClassListeners
 	
 	public HashMap<String, Boolean> pvpList = new HashMap<String,Boolean>();
+	public ArrayList<String> worldList = new ArrayList<String>();
 
 	public void onDisable() {
 	}
@@ -33,6 +36,12 @@ public class PiggyToggle extends JavaPlugin {
 		
 		this.getConfig().addDefault("worlds", new String[] { "world" });
 		this.getConfig().options().copyDefaults(true);
+		this.saveConfig();
+	}
+	
+	public void saveWorldConfig()
+	{
+		this.getConfig().set("worlds", this.worldList);
 		this.saveConfig();
 	}
 }
