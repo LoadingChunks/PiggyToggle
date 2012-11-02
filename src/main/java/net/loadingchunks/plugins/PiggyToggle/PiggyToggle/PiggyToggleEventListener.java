@@ -69,7 +69,7 @@ public class PiggyToggleEventListener implements Listener {
 					return;
 				else
 				{
-					event.isCancelled();
+					event.setCancelled(true);
 					assailant.sendMessage(ChatColor.RED + ((Player)event.getEntity()).getName() + " is not flagged for PVP!");
 				}
 			} else {
