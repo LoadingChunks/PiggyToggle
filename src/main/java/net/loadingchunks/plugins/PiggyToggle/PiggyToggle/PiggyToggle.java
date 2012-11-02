@@ -36,6 +36,9 @@ public class PiggyToggle extends JavaPlugin {
 		
 		this.getConfig().addDefault("worlds", new String[] { "world" });
 		this.getConfig().options().copyDefaults(true);
+		
+		this.worldList = (ArrayList<String>)this.getConfig().getStringList("worlds");
+		
 		this.saveConfig();
 	}
 	
