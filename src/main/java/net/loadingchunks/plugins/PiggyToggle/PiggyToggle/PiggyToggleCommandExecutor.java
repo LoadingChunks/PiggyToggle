@@ -44,6 +44,52 @@ public class PiggyToggleCommandExecutor implements CommandExecutor {
         		sender.sendMessage("You must be in-game to do that.");
         	}
             return true;
+        } else if(command.getName().equalsIgnoreCase("pt"))
+        {
+        	if(!sender.isOp())
+        	{
+        		sender.sendMessage("You must be an op to do that!");
+        		return true;
+        	}
+
+        	if(args.length > 0)
+        	{
+        		if(args[0].equalsIgnoreCase("reload"))
+        		{
+        			this.plugin.reloadConfig();
+        			sender.sendMessage("PiggyToggle Config Reloaded.");
+        			return true;
+        		} else if(args.length == 2) {
+        			if(args[0].equalsIgnoreCase("add"))
+        			{
+        				if(this.plugin.getServer().getWorld(args[1]) != null)
+        				{
+        					if(this.plugin.getConfig().getStringList("worlds").contains(args[1]))
+        						sender.sendMessage("That world is already listed!");
+        					else
+        					{
+        						this.plugin.getConfig().getStringList("worlds").add(args[1]);
+        						this.plugin.saveConfig();
+        						sender.sendMessage("World " + args[1] + " added to PVP Management List.");
+        					}
+        					return true;
+        				} else {
+        					sender.sendMessage("Please specify a valid world name.");
+        				}
+        			} else if(args[0].equalsIgnoreCase("remove")){
+        				if(this.plugin.getConfig().getStringList("worlds").contains(args[1]))
+        				{
+        					this.plugin.getConfig().getStringList("worlds").remove(args[1]);
+        					sender.sendMessage("World " + args[1] + " has been removed from the PVP Management List.");
+        				} else {
+        					sender.sendMessage("That world is not listed!");
+        				}
+        			} else {
+        				sender.sendMessage("Invalid add/remove command");
+        				return false;
+        			}
+        		}
+        	}
         }
         return false;
     }

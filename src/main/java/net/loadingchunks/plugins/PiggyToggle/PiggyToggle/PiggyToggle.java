@@ -29,5 +29,9 @@ public class PiggyToggle extends JavaPlugin {
 		// you can register multiple classes to handle events if you want
 		// just call pm.registerEvents() on an instance of each class
 		pm.registerEvents(eventListener, this);
+		
+		this.getConfig().addDefault("worlds", new String[] { "world" });
+		this.getConfig().options().copyDefaults(true);
+		this.saveConfig();
 	}
 }

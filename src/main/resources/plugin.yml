@@ -3,6 +3,11 @@ main: net.loadingchunks.plugins.PiggyToggle.PiggyToggle.PiggyToggle
 version: 0.1
 
 commands:
-   command:
-      description: A Command
-      usage: /<command> 
+   pvp:
+      description: Toggles your PvP Flag
+      usage: /pvp
+   pt:
+   	  description: Manages PiggyToggle Worlds
+   	  usage:
+   	    - /pt <add/remove> <world>
+        - /pt reload
