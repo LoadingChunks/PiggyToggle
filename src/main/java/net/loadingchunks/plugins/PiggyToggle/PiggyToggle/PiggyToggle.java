@@ -25,6 +25,7 @@ public class PiggyToggle extends JavaPlugin {
 		this.eventListener = new PiggyToggleEventListener(this);
 
 		getCommand("pvp").setExecutor(commandExecutor);
+		getCommand("pt").setExecutor(commandExecutor);
 
 		// you can register multiple classes to handle events if you want
 		// just call pm.registerEvents() on an instance of each class
